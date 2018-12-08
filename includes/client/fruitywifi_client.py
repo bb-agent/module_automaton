@@ -22,7 +22,7 @@ server = "https://127.0.0.1:8443";
 token = "e5dab9a69988dd65e578041416773149ea57a054"
 # NOTE: Enabling this option allows Automata module (script) to execute OS commands as ROOT (Be Careful!) [True|False]
 os_command = False
-log_file = "/usr/share/fruitywifi/logs/automaton.log"
+log_file = "/usr/share/blackbulb/logs/automaton.log"
 exclude_param = ["$", "version", "regex", "regex_extra", "codename", "root_path", "root_web", "log_path", "core_name", "core_alias", "api_token",
                     "bin_", "mod_name", "mod_version", "mod_path", "mod_logs", "mod_logs_history", "mod_logs_panel", "mod_panel", "mod_isup", "mod_alias"]
 
@@ -64,7 +64,7 @@ def usage():
     print "-s <server>,  --server=<server>       FruityWiFi server [http{s}://ip:port]."
     print "-h                                    Print this help message."
     print ""
-    print "FruityWiFi: http://www.fruitywifi.com"
+    print "FruityWiFi: http://www.blackbulb.com"
     print ""
 
 def parseOptions(argv):

@@ -24,7 +24,7 @@
 <br><b>STOP</b>: Stop a module. (example: STOP ap)
 <br><b>SET</b>: Set up an option using FruityWiFi api. (example: /config/core/hostapd_ssid/WiFi). All options can be obtained from <b>_info_.php</b> file on each module.
 <br><b>SLEEP</b>: Suspends the execution for a specified time (in seconds). (example: SLEEP 1)
-<br><b>EXEC</b>: Executes an OS command as root (Be Careful!). Note: This options is disabled by default. It needs to be enabled on the client script. [ client/<b>fruitywifi_client.py</b> : <b>os_command = True</b> ]
+<br><b>EXEC</b>: Executes an OS command as root (Be Careful!). Note: This options is disabled by default. It needs to be enabled on the client script. [ client/<b>blackbulb_client.py</b> : <b>os_command = True</b> ]
 
 <br><br>
 

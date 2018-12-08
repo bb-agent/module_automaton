@@ -43,48 +43,48 @@ if($service == "automaton") {
     
 	if ($action == "run") {
 		
-		$exec = "python client/fruitywifi_client.py -f templates/$automaton_conf -t $api_token > /dev/null 2 &";
-		exec_fruitywifi($exec);
+		$exec = "python client/blackbulb_client.py -f templates/$automaton_conf -t $api_token > /dev/null 2 &";
+		exec_blackbulb($exec);
 		
 	} else if ($action == "start") {
 
-        $exec = "python client/fruitywifi_client.py -f templates/$mod_automaton_onstart -t $api_token > /dev/null 2 &";
-		exec_fruitywifi($exec);
+        $exec = "python client/blackbulb_client.py -f templates/$mod_automaton_onstart -t $api_token > /dev/null 2 &";
+		exec_blackbulb($exec);
 
 		$exec = "echo 'OnStart' > status.txt";
-		exec_fruitywifi($exec);
+		exec_blackbulb($exec);
 		
         // COPY LOG
         if ( 0 < filesize( $mod_logs ) ) {
             $exec = "$bin_cp $mod_logs $mod_logs_history/".gmdate("Ymd-H-i-s").".log";
-            //exec_fruitywifi($exec);
+            //exec_blackbulb($exec);
             
             $exec = "$bin_echo '' > $mod_logs";
-            //exec_fruitywifi($exec);
+            //exec_blackbulb($exec);
         }
     
     
     } else if ($action == "stop") {
         
-        $exec = "python client/fruitywifi_client.py -f templates/$mod_automaton_onstop -t $api_token > /dev/null 2 &";
-		exec_fruitywifi($exec);
+        $exec = "python client/blackbulb_client.py -f templates/$mod_automaton_onstop -t $api_token > /dev/null 2 &";
+		exec_blackbulb($exec);
 
 		$exec = "echo 'OnStop' > status.txt";
-		exec_fruitywifi($exec);
+		exec_blackbulb($exec);
             
         // COPY LOG
         if ( 0 < filesize( $mod_logs ) ) {
             $exec = "$bin_cp $mod_logs $mod_logs_history/".gmdate("Ymd-H-i-s").".log";
-            //exec_fruitywifi($exec);
+            //exec_blackbulb($exec);
             
             $exec = "$bin_echo '' > $mod_logs";
-            //exec_fruitywifi($exec);
+            //exec_blackbulb($exec);
         }
 
     } else if ($action == "onboot-start") {
         
         // INCLUDE rc.local
-		$line_search = "fruitywifi_client.py";
+		$line_search = "blackbulb_client.py";
 		
         $exec = "grep '$line_search' /etc/rc.local";
         $isautostart = exec($exec);
@@ -95,24 +95,24 @@ if($service == "automaton") {
 			$isexit = exec($exec);
 			if ($isexit  == "") {
 				$exec = "echo 'exit 0' >> /etc/rc.local";
-                exec_fruitywifi($exec);
+                exec_blackbulb($exec);
 			} 
 			
 			// Insert OnBoot in rc.local
             $exec = "sed -i '/$line_search/d' /etc/rc.local";
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
             
-            $exec = "sed -i 's;^exit 0;python $mod_path/includes/client/fruitywifi_client.py -f $mod_path/includes/templates/$mod_automaton_onboot -t $api_token > /dev/null 2 \& \\nexit 0;g' /etc/rc.local";
-            exec_fruitywifi($exec);
+            $exec = "sed -i 's;^exit 0;python $mod_path/includes/client/blackbulb_client.py -f $mod_path/includes/templates/$mod_automaton_onboot -t $api_token > /dev/null 2 \& \\nexit 0;g' /etc/rc.local";
+            exec_blackbulb($exec);
             
         }
 
     } else if ($action == "onboot-stop") {
         // REMOVE from rc.local
-		$line_search = "fruitywifi_client.py";
+		$line_search = "blackbulb_client.py";
 		
         $exec = "sed -i '/$line_search/d' /etc/rc.local";
-        exec_fruitywifi($exec);
+        exec_blackbulb($exec);
     }
 
 }
@@ -120,10 +120,10 @@ if($service == "automaton") {
 if ($install == "install_autostart") {
 
     $exec = "chmod 755 install.sh";
-    exec_fruitywifi($exec);
+    exec_blackbulb($exec);
 
     $exec = "$bin_sudo ./install.sh > $log_path/install.txt &";
-    exec_fruitywifi($exec);
+    exec_blackbulb($exec);
 
     header('Location: ../../install.php?module=autostart');
     exit;

@@ -56,10 +56,10 @@ if ($type == "templates") {
                 $newdata = preg_replace("/[\n\r]/",  "", $newdata);
                 $template_path = "$mod_path/includes/templates";
                 $exec = "$bin_echo '$newdata' | base64 --decode > $template_path/$tempname";
-                exec_fruitywifi($exec);
+                exec_blackbulb($exec);
                 
                 $exec = "$bin_dos2unix $template_path/$tempname";
-                exec_fruitywifi($exec);
+                exec_blackbulb($exec);
             }
         }
         
@@ -70,7 +70,7 @@ if ($type == "templates") {
             if ($new_rename_file != "") {
                 $template_path = "$mod_path/includes/templates";
                 $exec = "$bin_touch $template_path/$new_rename_file";
-                exec_fruitywifi($exec);
+                exec_blackbulb($exec);
 
                 $tempname=$new_rename_file;
             }
@@ -78,7 +78,7 @@ if ($type == "templates") {
             //RENAME TEMPLATE
             $template_path = "$mod_path/includes/templates";
             $exec = "$bin_mv $template_path/$new_rename $template_path/$new_rename_file";
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
 
             $tempname=$new_rename_file;
         }
@@ -88,7 +88,7 @@ if ($type == "templates") {
             //DELETE TEMPLATE
             $template_path = "$mod_path/includes/templates";
             $exec = "$bin_rm $template_path/$new_rename";
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
         }
     }
     header("Location: ../index.php?tab=3&tempname=$tempname");

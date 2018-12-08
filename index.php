@@ -72,7 +72,7 @@ $service = $_POST["service"];
 // DELETE LOG
 if ($logfile != "" and $action == "delete") {
     $exec = "$bin_rm ".$mod_logs_history.$logfile.".log";
-    exec_fruitywifi($exec);
+    exec_blackbulb($exec);
 }
 
 include "includes/options_config.php";
@@ -104,7 +104,7 @@ include "includes/options_config.php";
     <br>
     
     <?
-    $ismoduleup = exec("grep -iEe 'python.+client/fruitywifi_client.py' /etc/rc.local");
+    $ismoduleup = exec("grep -iEe 'python.+client/blackbulb_client.py' /etc/rc.local");
     if ($ismoduleup != "") {
         echo "&nbsp;&nbsp;&nbsp;&nbsp; OnBoot  <font color='lime'><b>enabled</b></font>.&nbsp; | <a href='includes/module_action.php?service=$mod_name&action=onboot-stop&page=module'><b>stop</b></a>";
     } else { 
