@@ -54,17 +54,17 @@ logger.addHandler(handler)
 
 
 def usage():
-    print "\nFruityWiFi API " + gVersion + " by @xtr4nge"
+    print "\nBlackBlulb API " + gVersion + " by @xtr4nge"
     
     print "Usage: ./client <options>\n"
     print "Options:"
     print "-x <command>, --execute=<commnd>      exec the command passed as parameter."
     print "-f <file>,    --file=<file>           sequence of commands to be executed"
     print "-t <token>,   --token=<token>         authentication token."
-    print "-s <server>,  --server=<server>       FruityWiFi server [http{s}://ip:port]."
+    print "-s <server>,  --server=<server>       BlackBlulb server [http{s}://ip:port]."
     print "-h                                    Print this help message."
     print ""
-    print "FruityWiFi: http://www.blackbulb.com"
+    print "BlackBlulb: http://www.blackbulb.com"
     print ""
 
 def parseOptions(argv):

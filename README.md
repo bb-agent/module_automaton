@@ -1,7 +1,7 @@
 module_automaton
 ================
 
-FruityWiFi automaton module
+BlackBlulb automaton module
 
 
 v1.2
@@ -16,5 +16,5 @@ v1.1
 
 v1.0
 ---------------------------------
-- FruityWiFi v2.4 is required
+- BlackBlulb v2.4 is required
 - python-requests is required
